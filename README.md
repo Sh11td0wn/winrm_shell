@@ -1,7 +1,7 @@
 # winrm_shell
 Ruby script that calls an almost interactive shell via WinRM (TCP/5985) on an Windows machine.
 
-# ./winrm_shell.rb -h
+
 
 	Usage: ./winrm_shell.rb [options]
 
@@ -19,8 +19,7 @@ Ruby script that calls an almost interactive shell via WinRM (TCP/5985) on an Wi
     -p, --password PASSWORD          The user's password.
 
 
-#                                                                                              #
-#                     *** Do NOT use this for illegal or malicious use ***                     #
-#                By running this, YOU are using this program at YOUR OWN RISK.                 #
-#            This software is provided "as is", WITHOUT ANY guarantees OR warranty.            #
-#                                                                                              #
+                     *** Do NOT use this for illegal or malicious use ***                     
+                By running this, YOU are using this program at YOUR OWN RISK.                 
+            This software is provided "as is", WITHOUT ANY guarantees OR warranty.            
+
