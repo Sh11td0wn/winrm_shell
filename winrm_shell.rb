@@ -1,11 +1,17 @@
 #!/usr/bin/ruby
 
+# Description:
+#
 # Ruby script that calls an almost interactive shell via WinRM (TCP/5985) on an Windows machine.
 
 # Dependencies:
 # gem install winrm
 
 # Author: Sh11td0wn (Github)
+
+#          *** Do NOT use this for illegal or malicious use ***                     
+#      By running this, YOU are using this program at YOUR OWN RISK.                 
+#  This software is provided "as is", WITHOUT ANY guarantees OR warranty. 
 
 # Modules
 require 'winrm'
@@ -16,14 +22,18 @@ options = {}
 OptionParser.new do |parser|
 
 	parser.banner = "
-	Usage: ./winrm_shell.rb [options]
+    Description:
 
-	Example:
-	./winrm_shell.rb -s 192.169.0.5 -d contoso.com -u bob -p 'P@ssw0rd'
+    Ruby script that calls an almost interactive shell via WinRM (TCP/5985) on an Windows machine.
 
-	Obs. Options --server, --user and --password are REQUIRED!
+    Usage: ./winrm_shell.rb [options]
 
-	Options:
+    Example:
+    ./winrm_shell.rb -s 192.169.0.5 -d contoso.com -u bob -p 'P@ssw0rd'
+
+    Obs. Options --server, --user and --password are REQUIRED!
+
+    Options:
 	"
 
    	parser.on("-h", "--help", "Show this help message") do ||
@@ -31,7 +41,7 @@ OptionParser.new do |parser|
 		puts
 		exit
   	end
-	# Whenever we see -n or --name, with an argument, save the argument.
+	# Whenever we see -f or --foo, with an argument, save the argument.
 	parser.on("-s", "--server SERVER", "The server hostname or IP address.") do |v|
     	options[:server] = v
 	end
@@ -44,10 +54,9 @@ OptionParser.new do |parser|
     	options[:user] = v
 	end
 	
-	parser.on("-p", "--password PASSWORD", "The user's password.") do |v|
+	parser.on("-p", "--password PASSWORD", "The user's plain text password or NTLM hash.") do |v|
     	options[:password] = v
 	end
-
 end.parse!
 
 # WinRM connection
